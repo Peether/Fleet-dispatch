@@ -1,42 +1,60 @@
+
 import sys
-from tkinter import Menu
-
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QLabel
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtWidgets import QStatusBar
-from PyQt5.QtWidgets import QToolBar
-
-
-
-class guiClient(QMainWindow): #Main gui window
+from PyQt5.QtCore import Qt
+import PyGui 
+from PyQt5.QtWidgets import (
+    QMainWindow,
+    QApplication,
+    QVBoxLayout,
+    QWidget,
+    QPushButton,
+    QToolBar,
+    QToolButton,
+    QMenu
     
-    def __init__(self, parent=None): #Initializer
-        
+)
+
+#GUI:n pääikkuna
+class guiClient(QMainWindow): 
+    
+    def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("UltimateGUI")
-        self.setCentralWidget(QLabel("I am your central widget"))
-        self._createMenu()
-        self._createToolBar()
-        self._createStatusBar()
-    
-    def _createMenu(self):
-        self.menu = self.menuBar().addMenu("&Menu")
-        self.menu.addAction('&Exit', self.close)
+        self.setWindowTitle("Fleet Command")
         
-    def _createToolBar(self):
-        tools = QToolBar()
-        self.addToolBar(tools)
-        tools.addAction('&Exit', self.close)
-                
-    def _createStatusBar(self):
-        status = QStatusBar()
-        status.showMessage("I am status bar")
-        self.setStatusBar(status)
+        #Central widget on pää ikkunan oma layout, Ei tarvita erillistä layoptuttia. 
+        self._centralWidget = QWidget(self)
+        self.setCentralWidget(self._centralWidget)
+        self._createmenu()
+        self._createtoolbar()
+        self._createactions()
+        
+        
+    def _createmenu(self):
+        menuBar = self.menuBar()
+        menuNames = ["&File", "&Tools", "&Help", self]
+        #File valikko   
+        fileMenu = QMenu(menuNames[0], self)
+        menuBar.addMenu(fileMenu)
+        #Tools valikko
+        toolsMenu = QMenu(menuNames[1],self)
+        menuBar.addMenu(toolsMenu)
+        #Help valikko
+        helpMenu = QMenu(menuNames[2],self)
+        menuBar.addMenu(helpMenu)
     
+    def _createtoolbar(self):
+        toolBar = self.addToolBar("Tools")
+        toolBar.setMovable(True)
+        
+        pass
+        
+        
+    def _createactions(self):
+        pass
      
 if __name__=="__main__":
         app = QApplication(sys.argv)
         win = guiClient()
+        win.showMaximized()
         win.show()
         sys.exit(app.exec_())
