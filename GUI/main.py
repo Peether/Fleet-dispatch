@@ -25,7 +25,7 @@ class Window(QMainWindow):
 
     def __init__(self, parent=None):
         """Initializer."""
-        super().__init__(parent)
+        super(Window).__init__(parent)
         self.setWindowTitle("Fleet Commander")
         self.setWindowIcon(QIcon("C:/Users/Petri H/Documents/GitHub/Fleet-dispatch/icons/database.png"))
         self.resize(400, 200)
