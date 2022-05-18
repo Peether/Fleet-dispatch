@@ -1,9 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource/>
-    <file alias = "Map.png">icons/map.png</file>
-    <file alias = "Card.png">icons/card-address.png</file>
-    <file alias = "Balloon.png">icons/balloon.png</file>
-    <file alias = "Alarm.png">icons/exclamation.png</file>
-    <file alias = "Sidebar.png">icons/application-sidebar.png</file>
-</qresource>
-</RCC>
