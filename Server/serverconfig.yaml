@@ -1,0 +1,11 @@
+
+#Server settings
+Settings:
+# Server IP-address, TCP port
+  Network:
+    IP: '172.0.0.1'
+    port: 9090
+
+# Icon folder and path
+
+
